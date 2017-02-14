@@ -2,6 +2,7 @@
 #define WINDOW_H
 
 #include <QtCore/QVariant>
+#include <QDebug>
 #include <QAction>
 #include <QApplication>
 #include <QButtonGroup>
@@ -33,7 +34,9 @@ public:
     QFormLayout *formLayout;
     QLabel *label;
 
-    void setupUi(QMainWindow *MainWindow); // setupUi
+    int w = 0, h = 0;
+
+    void setupUi(QMainWindow *MainWindow);
     };
 
 #endif // WINDOW_H

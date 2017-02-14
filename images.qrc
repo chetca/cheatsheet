@@ -1,6 +1,7 @@
 <RCC>
     <qresource prefix="/sources">
         <file>intergral.png</file>
+        <file>algebra.png</file>
     </qresource>
     <qresource prefix="/icon">
         <file>cheat.ico</file>
