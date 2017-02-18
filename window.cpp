@@ -4,7 +4,10 @@ void Window::setupUi(QMainWindow *MainWindow)
 {
     if (MainWindow->objectName().isEmpty())
         MainWindow->setObjectName(QStringLiteral("Школьная шпаргалка"));
-    MainWindow->resize(1080, 1920);
+    MainWindow->setGeometry(0,0,
+                QApplication::desktop()->screenGeometry().width(),
+                QApplication::desktop()->screenGeometry().height()
+                );
     setWindowTitle(tr("Школьная шпаргалка"));
     setWindowIcon(QIcon(":/icon/cheat.ico"));
     centralWidget = new QWidget(MainWindow);
@@ -27,14 +30,14 @@ void Window::setupUi(QMainWindow *MainWindow)
     formLayout->setContentsMargins(10, 10, 10, 200);
 
     int SCREENWIDTH = MainWindow->width();
-    int SCREENHEIGHT = MainWindow->height();
+    //int SCREENHEIGHT = MainWindow->height();
     //qDebug() << SCREENWIDTH<< " " << SCREENHEIGHT;
 
     label = new QLabel(scrollAreaWidgetContents);
     label->setObjectName(QStringLiteral("label"));
     label->setEnabled(true);
     QPixmap *pict = new QPixmap(":/sources/algebra.png");
-    label->setPixmap(pict->scaled(SCREENWIDTH-90,SCREENHEIGHT*3));
+    label->setPixmap(pict->scaled(SCREENWIDTH-90,pict->height()*(SCREENWIDTH-90)/pict->width()));
     //label->setPixmap(*pict);
     formLayout->setWidget(0, QFormLayout::FieldRole, label);
     scrollArea->setWidget(scrollAreaWidgetContents);
@@ -47,11 +50,20 @@ Window::Window(QWidget *parent) :
     QMainWindow(parent)
 {
     setupUi(this);
-
+    //QBasicTimer ticker = 1;
 }
 
 Window::~Window() {
 }
+
+//void QTimerEvent (QTimer *) {
+//
+//}
+
+//void Window::mouseReleaseEvent(QMouseEvent *event)
+//{
+
+//}
 
 
 

@@ -14,6 +14,9 @@
 #include <QScrollArea>
 #include <QWidget>
 #include <QPixmap>
+#include <QTimer>
+
+#include <QtWidgets>
 
 namespace Ui {
 class MainWindow;
@@ -34,9 +37,9 @@ public:
     QFormLayout *formLayout;
     QLabel *label;
 
-    int w = 0, h = 0;
-
+    //void mouseReleaseEvent(QMouseEvent *event);
+    //void timerEvent(QTimerEvent *);
     void setupUi(QMainWindow *MainWindow);
-    };
+};
 
 #endif // WINDOW_H
